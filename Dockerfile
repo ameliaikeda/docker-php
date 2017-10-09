@@ -8,8 +8,6 @@ ENV COMPOSER_NO_INTERACTION 1
 ENV COMPOSER_HOME /usr/lib/composer
 ENV COMPOSER_CACHE_DIR /var/cache/composer
 
-WORKDIR /tmp
-
 RUN apk --update add \
     ca-certificates \
     php7 \
