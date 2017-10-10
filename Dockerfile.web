@@ -1,6 +1,6 @@
 FROM amelia/dhparam:latest as dh
 FROM nginx:mainline-alpine as nginx
-FROM amelia/php-cli:latest
+FROM amelia/php:cli
 
 LABEL maintainer="amelia@dorks.io"
 
