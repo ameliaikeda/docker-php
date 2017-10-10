@@ -32,7 +32,7 @@ RUN apk --update add \
     && update-ca-certificates \
     && rm -rf /var/cache/apk/*
 
-COPY php.ini /etc/php7/conf.d/20-extra.ini
+COPY files/php-cli/php.ini /etc/php7/conf.d/20-extra.ini
 COPY --from=composer /usr/bin/composer /usr/bin
 
 RUN composer global require hirak/prestissimo && rm -rf /var/cache/composer/*
