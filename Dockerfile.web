@@ -37,6 +37,7 @@ RUN set -x \
         php7-session \
         supervisor \
         php7-fpm \
+        php7-ctype \
     && update-ca-certificates \
     && rm -rf /var/cache/apk/* \
     && rm /etc/init.d/php-fpm7 \
