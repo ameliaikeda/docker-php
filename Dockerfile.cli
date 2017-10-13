@@ -37,6 +37,7 @@ RUN apk --update add \
     php7-xmlwriter \
     php7-xmlreader \
     php7-simplexml \
+    php7-ctype \
     && update-ca-certificates \
     && rm -rf /var/cache/apk/*
 
