@@ -90,3 +90,4 @@ If there are any security issues with this image, you can poke me on twitter [@a
 [letsencrypt]: https://letsencrypt.org/
 [licence]: https://github.com/ameliaikeda/docker-php/blob/master/LICENSE
 [twitter]: https://twitter.com/ameliaikeda
+[dhparam]: https://hub.docker.com/r/amelia/dhparam/
