@@ -10,6 +10,8 @@ All images include the latest version of composer, globally installed, with [pre
 
 To use a github oauth token, just set a `GITHUB_TOKEN` environment variable using whichever method you like.
 
+To clean up composer and clean your builds properly after running `composer install`, run `rm -rf /var/cache/composer/*` at the end of your `RUN` command to avoid bloating your layers with caches from Packagist.
+
 # Usage
 
 Use `amelia/php:cli` for a tiny cli image of the latest version of PHP, or use `amelia/php:fpm` to use an FPM image with nginx and supervisor bundled.
