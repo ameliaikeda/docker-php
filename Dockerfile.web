@@ -72,6 +72,8 @@ COPY files/php-fpm/php.ini /etc/php7/conf.d/20-extra.ini
 COPY files/nginx/site.conf /etc/nginx/conf.d/site.conf
 COPY files/nginx/nginx.conf /etc/nginx/nginx.conf
 
+RUN composer global require hirak/prestissimo && rm -rf /var/cache/composer/*
+
 WORKDIR /srv/code
 
 EXPOSE 80 443
