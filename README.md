@@ -2,11 +2,11 @@
 
 A PHP image for docker that works with Laravel. Includes modules needed for running Laravel/Symfony, and has an FPM version that bundles nginx with a decent configuration.
 
-By default, this will always track the latest version of PHP. To lock to a specific version, use `amelia/php:7.1-cli` and `amelia/php:7.1-fpm`, and so on. **[TODO 2017-10-20]**
+By default, this will always track the latest version of PHP. To lock to a specific version, use `amelia/php:7.1` or `amelia/php:7.2`, etc.
 
 # Composer
 
-All images include the latest version of composer, globally installed, with [prestissimo][prestissimo] installed for parallel composer downloads to speed up your builds (use `--prefer-dist` for this). The image also configures composer for no-interaction mode.
+The latest version of composer, is globally installed, with [prestissimo][prestissimo] installed for parallel composer downloads to speed up your builds (use `--prefer-dist` for this). The image also configures composer for no-interaction mode.
 
 To use a github oauth token, just set a `GITHUB_TOKEN` environment variable using whichever method you like.
 
@@ -14,11 +14,11 @@ To clean up composer and clean your builds properly after running `composer inst
 
 # Usage
 
-Use `amelia/php:cli` for a tiny cli image of the latest version of PHP, or use `amelia/php:fpm` to use an FPM image with nginx and supervisor bundled.
+This image comes with nginx and supervisor bundled, as well as a `php` cli process and php-fpm.
 
-Most extensions are included, so you can usually use this image as-is, and this image is based off of [Alpine Linux][alpine] and weighs in at about 25MB cli and 45MB fpm (compressed).
+Most extensions are included, so you can usually use this image as-is, and this image is based off of [Alpine Linux][alpine] and weighs in at about 45MB (compressed).
 
-The modules included in both CLI and FPM images are:
+The modules included are:
 
 - curl
 - gd
@@ -29,7 +29,6 @@ The modules included in both CLI and FPM images are:
 - openssl
 - pdo_pgsql
 - pdo_mysql
-- pdo_sqlite
 - zip
 - phar
 - tokenizer
@@ -47,11 +46,11 @@ The modules included in both CLI and FPM images are:
 - simplexml
 - ctype
 
-The assumed work directory for this image is `/srv/code`. This is where all commands are relative to, and where you should mount or `COPY` your code. The FPM image assumes the webroot is `/srv/code/public` and the index file is `index.php`.
+The assumed work directory for this image is `/srv/code`. This is where all commands are relative to, and where you should mount or `COPY` your code. The fpm/nginx processes assume the webroot is `/srv/code/public` and the index file is `index.php`.
 
 # CLI Usage
 
-To use the CLI image you can literally just run `docker run -it amelia/php:cli` to drop yourself into a PHP shell, or you can mount files and run them.
+To use this as a CLI image you can literally just run `docker run -it` and run a php command.
 
 # FPM Usage
 
@@ -80,8 +79,7 @@ Supervisor config is at `/etc/supervisord.conf` and will monitor both nginx and 
 # Footnotes
 
 - This image is provided under the BSD Licence, which you can find in the [LICENCE][licence] file.
-- If you don't want to pull more than one image, you can just use the `fpm` image as a CLI one; it's fully functional.
-- This project is set to auto-build a new version on every alpine, php, nginx or composer docker image update.
+- As with all prebuilt images, this contains other software under different licences.
 
 # Security
 
