@@ -77,6 +77,6 @@ RUN composer global require hirak/prestissimo \
 
 WORKDIR /srv/code
 
-EXPOSE 80 443
+EXPOSE 80 443 9000
 
 CMD ["supervisord", "-n", "-c", "/etc/supervisord.conf"]
